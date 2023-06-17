@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from inicio.views import myHomeView
 from tienda.views import ObjetoTienda
+from tienda.views import obtener_productos
 
 urlpatterns = [
     path('', myHomeView, name='Página de inicio'),
     path('admin/', admin.site.urls),
     path('objeto/',ObjetoTienda,name='otro'),
+    path('obtener_productos/',obtener_productos, name='productos'),
 ]
