@@ -9,3 +9,13 @@ def ObjetoTienda(request):
     }
     return render(request, 'objetos/test.html', context)
 
+def obtener_productos(request):
+    categoria = request.GET.get('categoria')
+    if categoria == 'Todos':
+        productos = Tienda.objects.all()
+    else:
+        productos = Tienda.objects.filter(categoria=categoria)
+    context = {
+        'productos': productos
+    }
+    return render(request, 'objetos/test_productos.html', context)
