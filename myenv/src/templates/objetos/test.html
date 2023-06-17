@@ -1,18 +1,26 @@
 {% extends 'base.html' %}
 {% block content%}
-<select id = "opcion"  class = "" onchange="">
+<select id = "opcion"  class = "" onchange="obtenerSelect(this)">
     <option class = "" onclick="">Todos</button>
     {% for obj in productos %}
         <option class = "" onclick="">{{ obj.categoria }}</button>
-    {% endfor %}
-        
+    {% endfor %}  
 </select>
-{% for obj in productos %}
-    <h1>Nombre: {{ obj.nombre }}</h1>
-    <img src='{{ obj.imagen }}' width = "350" height = "300" alt = '{{ obj.nombre }}'>
-    <h2>{{ obj.descripcion }}</h2>
-    <h2>Stock: {{ obj.stock }}</h2>
-    <h1>Precio: S/.{{ obj.precio }}</h1>
-{% endfor %}
-{%endblock%}
+<div id = "productos">
+    {% for obj in productos %}
+        <h1>Nombre: {{ obj.nombre }}</h1>
+        <img src='{{ obj.imagen }}' width = "350" height = "300" alt = '{{ obj.nombre }}'>
+        <h2>{{ obj.descripcion }}</h2>
+        <h2>Stock: {{ obj.stock }}</h2>
+        <h1>Precio: S/.{{ obj.precio }}</h1>
+    {% endfor %}
+</div>
 
+<script>
+    function obtenerSelect(selectElement) {
+        var selected = selectElement.options[selectElement.selectedIndex].text;
+        console.log(selected);
+        
+    }
+</script>
+{%endblock%}
