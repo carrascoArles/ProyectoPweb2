@@ -3,10 +3,9 @@ from .models import Tienda
 
 # Create your views here.
 def ObjetoTienda(request):
-    obj = Tienda.objects.get(id = 1)
+    obj = Tienda.objects.all()
     context ={
-      'nombre': obj.nombre,
-      'precio': obj.precio,
+      'productos': obj
     }
     return render(request, 'objetos/test.html', context)
 
