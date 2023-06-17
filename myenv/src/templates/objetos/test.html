@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% block content%}
+<select id = "opcion"  class = "" onchange="">
+    <option class = "" onclick="">Todos</button>
+    {% for obj in productos %}
+        <option class = "" onclick="">{{ obj.categoria }}</button>
+    {% endfor %}
+        
+</select>
 {% for obj in productos %}
     <h1>Nombre: {{ obj.nombre }}</h1>
     <img src='{{ obj.imagen }}' width = "350" height = "300" alt = '{{ obj.nombre }}'>
