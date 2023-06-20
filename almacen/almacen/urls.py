@@ -16,12 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from home.views import myHomeView
+from django.views.generic import RedirectView
 from tienda.views import ObjetoTienda
 from tienda.views import obtener_productos
 
 urlpatterns = [
-    path('', myHomeView, name='Página de inicio'),
+    path('', RedirectView.as_view(url='tienda/', permanent=True), name="otro"),
     path('admin/', admin.site.urls),
     path('tienda/',ObjetoTienda,name='otro'),
     path('obtener_productos/',obtener_productos, name='productos'),
