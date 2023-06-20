@@ -4,8 +4,13 @@ from .models import Tienda
 # Create your views here.
 def ObjetoTienda(request):
     obj = Tienda.objects.all()
+    categorias = []
+    for producto in obj:
+        if producto.categoria not in categorias :
+            categorias.append(producto.categoria)
     context ={
-      'productos': obj
+      'productos': obj,
+      'categorias': categorias,
     }
     return render(request, 'objetos/test.html', context)
 
