@@ -3,8 +3,8 @@
 {% block content %}
 <select id = "opcion"  class = "" onchange="obtenerSelect(this)">
     <option class = "" onclick="">Todos</button>
-    {% for obj in productos %}
-        <option class = "" onclick="">{{ obj.categoria }}</button>
+    {% for categoria in categorias %}
+        <option class = "" onclick="">{{ categoria }}</button>
     {% endfor %}  
 </select>
 
